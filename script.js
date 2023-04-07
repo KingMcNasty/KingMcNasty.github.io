@@ -1,23 +1,45 @@
-console.log("sup");
+document.getElementById("apothem").addEventListener("onchange", calculate);
 
-function calculate() {
-  const height = document.getElementById("height").value;
-  const length = document.getElementById("length").value;
-
-  const result = height * length;
-
-  document.getElementById("result").innerHTML = result;
+function calculate(e) {
+console.log(e)
 }
 
-function clear() {
-  console.log("/");
-  const height = document.getElementById("height");
-  const length = document.getElementById("length");
+function gethexmeasurements() {
+  const apothem = document.getElementById("apothem").value;
+  const stoslength = document.getElementById("stoslength").value;
+  const perimeterlength = document.getElementById("perimeterlength").value;
+  const areasize = document.getElementById("areasize").value;
+  const sidelength = document.getElementById("sidelength").value;
+  const ctovlength = document.getElementById("ctovlength").value;
+  const vtovLength = document.getElementById("vtovLength").value;
+ 
+  return{
+    apothem,
+    stoslength,
+    perimeterlength,
+    areasize,
+    sidelength,
+    ctovlength,
+    vtovLength,
+    }
 
-  height.value = "";
-  length.value = "";
-  document.getElementById("result").innerHTML = "";
 }
 
-document.getElementById("submit").addEventListener("click", calculate);
-document.getElementById("clear").addEventListener("click", clear);
+function setmeasurements(measurements) {
+  const apothem = document.getElementById("apothem").value;
+  const stoslength = document.getElementById("stoslength").value;
+  const perimeterlength = document.getElementById("perimeterlength").value;
+  const areasize = document.getElementById("areasize").value;
+  const sidelength = document.getElementById("sidelength").value;
+  const ctovlength = document.getElementById("ctovlength").value;
+  const vtovLength = document.getElementById("vtovLength").value;
+
+  apothem.value = measurements.apothem
+  stoslength.value = measurements.stoslength
+  perimeterlength.value = measurements.perimeterlength
+  areasize.value = measurements.areasize
+  sidelength.value = measurements.sidelength
+  ctovlength.value = measurements.ctovlength
+  vtovLength.value = measurements.vtovLength
+}
+
