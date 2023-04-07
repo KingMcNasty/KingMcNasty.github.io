@@ -1,33 +1,36 @@
-console.log("ver1.1")
+console.log("ver1.3")
 document.getElementById("apothem").addEventListener("change", calculate);
 
 function calculate(e) {
-console.log(e)
-const name = e.target.name
-const value = e.target.value
-  if(name === apothem){
+  console.log(e)
+  const name = e.target.name
+  const value = e.target.value
+  if (name === apothem) {
     const measurements = {
       apothem: value,
-      stoslength: value*2,
+      stoslength: value * 2,
       perimeterlength: 4,
       areasize: 4,
       sidelength: 4,
       ctovlength: 4,
       vtovLength: 4,
     }
-    if(name === stoslength){
-      const measurements = {
-        apothem: value/2,
-        stoslength: value,
-        perimeterlength: 4,
-        areasize: 4,
-        sidelength: 4,
-        ctovlength: 4,
-        vtovLength: 4,
-      }
-  setmeasurements(measurements)
+    setmeasurements(measurements)
+  }
+  if (name === stoslength) {
+    const measurements = {
+      apothem: value / 2,
+      stoslength: value,
+      perimeterlength: 4,
+      areasize: 4,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
+    }
+    setmeasurements(measurements)
+  }
 }
-}
+
 
 function gethexmeasurements() {
   const apothem = document.getElementById("apothem").value;
@@ -37,8 +40,8 @@ function gethexmeasurements() {
   const sidelength = document.getElementById("sidelength").value;
   const ctovlength = document.getElementById("ctovlength").value;
   const vtovLength = document.getElementById("vtovLength").value;
- 
-  return{
+
+  return {
     apothem,
     stoslength,
     perimeterlength,
@@ -46,7 +49,7 @@ function gethexmeasurements() {
     sidelength,
     ctovlength,
     vtovLength,
-    }
+  }
 
 }
 
