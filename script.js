@@ -1,4 +1,4 @@
-console.log("ver1.3")
+// console.log("ver1.3")
 document.getElementById("apothem").addEventListener("change", calculate);
 
 function calculate(e) {
