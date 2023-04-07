@@ -5,7 +5,7 @@ function calculate(e) {
   console.log(e)
   const name = e.target.name
   const value = e.target.value
-  if (name === apothem) {
+  if (name === "apothem") {
     const measurements = {
       apothem: value,
       stoslength: value * 2,
@@ -17,7 +17,7 @@ function calculate(e) {
     }
     setmeasurements(measurements)
   }
-  if (name === stoslength) {
+  if (name === "stoslength") {
     const measurements = {
       apothem: value / 2,
       stoslength: value,
@@ -54,13 +54,14 @@ function gethexmeasurements() {
 }
 
 function setmeasurements(measurements) {
-  const apothem = document.getElementById("apothem").value;
-  const stoslength = document.getElementById("stoslength").value;
-  const perimeterlength = document.getElementById("perimeterlength").value;
-  const areasize = document.getElementById("areasize").value;
-  const sidelength = document.getElementById("sidelength").value;
-  const ctovlength = document.getElementById("ctovlength").value;
-  const vtovLength = document.getElementById("vtovLength").value;
+  console.log(measurements)
+  const apothem = document.getElementById("apothem");
+  const stoslength = document.getElementById("stoslength");
+  const perimeterlength = document.getElementById("perimeterlength");
+  const areasize = document.getElementById("areasize");
+  const sidelength = document.getElementById("sidelength");
+  const ctovlength = document.getElementById("ctovlength");
+  const vtovLength = document.getElementById("vtovLength");
 
   apothem.value = measurements.apothem
   stoslength.value = measurements.stoslength
@@ -69,5 +70,4 @@ function setmeasurements(measurements) {
   sidelength.value = measurements.sidelength
   ctovlength.value = measurements.ctovlength
   vtovLength.value = measurements.vtovLength
-}
-
+};
