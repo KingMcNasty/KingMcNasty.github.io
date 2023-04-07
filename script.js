@@ -2,6 +2,20 @@ document.getElementById("apothem").addEventListener("onchange", calculate);
 
 function calculate(e) {
 console.log(e)
+const name = e.target.name
+const value = e.target.value
+if(name === apothem){
+  const measurements = {
+    apothem: value,
+    stoslength: 4,
+    perimeterlength: 4,
+    areasize: 4,
+    sidelength: 4,
+    ctovlength: 4,
+    vtovLength: 4,
+  }
+  setmeasurements(measurements)
+}
 }
 
 function gethexmeasurements() {
