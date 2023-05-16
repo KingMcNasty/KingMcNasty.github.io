@@ -1,6 +1,6 @@
 console.log("ver1.31")
 document.getElementById("apothem").addEventListener("change", calculate);
-document.getElementById("stoslength").addEventListener("change", calculate);
+//document.getElementById("stoslength").addEventListener("change", calculate);
 
 function calculate(e) {
   console.log(e);
