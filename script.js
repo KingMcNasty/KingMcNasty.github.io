@@ -12,7 +12,7 @@ function calculate(e) {
       perimeterlength: (12 * value) / Math.sqrt(3),
       areasize: (3 * Math.sqrt(3) * value^2) / 2,
       sidelength: 2 * (value / Math.sqrt(3)),
-      ctovlength: 4,
+      ctovlength: 96,
       vtovLength: 2 * value * Math.sqrt(3),
     };
     setmeasurements(measurements);
