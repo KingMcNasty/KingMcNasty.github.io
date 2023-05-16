@@ -18,9 +18,6 @@ function calculate(e) {
     };
     setmeasurements(measurements);
   }
-  console.log(e);
-  const name = e.target.name;
-  const value = e.target.value;
   if (name === "stoslength") {
     const measurements = {
       apothem: value / 2,
