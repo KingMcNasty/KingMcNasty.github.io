@@ -1,4 +1,4 @@
-// console.log("ver1.3")
+console.log("ver1.31")
 document.getElementById("apothem").addEventListener("change", calculate);
 
 function calculate(e) {
@@ -13,7 +13,7 @@ function calculate(e) {
       areasize: (3 * Math.sqrt(3) * value^2) / 2,
       sidelength: 2 * (value / Math.sqrt(3)),
       ctovlength: 4,
-      vtovLength: 4,
+      vtovLength: 2 * value * Math.sqrt(3),
     };
     setmeasurements(measurements);
   }
