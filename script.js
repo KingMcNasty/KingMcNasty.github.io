@@ -10,10 +10,10 @@ function calculate(e) {
       apothem: value,
       stoslength: value * 2,
       perimeterlength: (12 * value) / Math.sqrt(3),
-      areasize: (3 * Math.sqrt(3) * Math.pow(value, 2)) / 2,
+      areasize: value * ((12 * value) / Math.sqrt(3)) / 2,
       sidelength: 2 * (value / Math.sqrt(3)),
       ctovlength: (2 * value) / Math.sqrt(3),
-      vtovLength: 2 * value * Math.sqrt(3),
+      vtovLength: 2 * ((2 * value) / Math.sqrt(3)),
     };
     setmeasurements(measurements);
   }
