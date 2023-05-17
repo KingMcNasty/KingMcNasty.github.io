@@ -2,6 +2,10 @@ console.log("ver1.31")
 //document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 
+var number = 1.53;
+var resultElement = document.getElementById("version");
+resultElement.textContent = "ver: " + number;
+
 function calculate(e) {
   console.log(e);
   const name = e.target.name;
