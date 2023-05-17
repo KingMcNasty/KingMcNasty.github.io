@@ -1,8 +1,9 @@
 console.log("ver xxx")
 document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
+document.getElementById("perimeterlength").addEventListener("change", calculate);
 
-var number = 1.60;
+var number = 1.61;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -31,6 +32,18 @@ function calculate(e) {
       sidelength: (2 / Math.sqrt(3)) * (value / 2),
       ctovlength: value / Math.sqrt(3),
       vtovLength: 2 * value / Math.sqrt(3),
+    };
+    setmeasurements(measurements);
+  }
+  if (name === "perimeterlength") {
+    const measurements = {
+      apothem: 4,
+      stoslength: 4,
+      perimeterlength: 4,
+      areasize: 4,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
     };
     setmeasurements(measurements);
   }
