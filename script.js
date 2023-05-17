@@ -1,8 +1,8 @@
-console.log("ver1.31")
-//document.getElementById("apothem").addEventListener("change", calculate);
+console.log("ver xxx")
+document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 
-var number = 1.57;
+var number = 1.58;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
