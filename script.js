@@ -22,11 +22,11 @@ function calculate(e) {
     const measurements = {
       apothem: value / 2,
       stoslength: value,
-      perimeterlength: 4,
-      areasize: 4,
-      sidelength: 4,
-      ctovlength: 4,
-      vtovLength: 4,
+      perimeterlength: 2 * Math.sqrt(3) * value,
+      areasize: (3 * Math.sqrt(3) * Math.pow(value, 2)) / 2,
+      sidelength: value / (2 * Math.sqrt(3)),
+      ctovlength: value / Math.sqrt(3),
+      vtovLength: 2 * value * Math.sqrt(3),
     };
     setmeasurements(measurements);
   }
