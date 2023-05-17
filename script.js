@@ -2,7 +2,7 @@ console.log("ver1.31")
 //document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 
-var number = 1.55;
+var number = 1.56;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -27,7 +27,7 @@ function calculate(e) {
       apothem: value / 2,
       stoslength: value,
       perimeterlength: 2 * Math.sqrt(3) * value,
-      areasize: (1/4) * Math.sqrt(3) * Math.pow(a/2, 2),
+      areasize: (1/4) * Math.sqrt(3) * Math.pow(value / 2, 2),
       sidelength: (2 / Math.sqrt(3)) * (value / 2),
       ctovlength: value / Math.sqrt(3),
       vtovLength: 2 * value / Math.sqrt(3),
