@@ -3,7 +3,7 @@ document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 document.getElementById("perimeterlength").addEventListener("change", calculate);
 
-var number = 1.62;
+var number = 1.63;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -38,7 +38,7 @@ function calculate(e) {
   if (name === "perimeterlength") {
     const measurements = {
       apothem: Math.sqrt(3) / 12 * value,
-      stoslength: value * (2 * Math.sqrt(3)),
+      stoslength: value / (2 * Math.sqrt(3)),
       perimeterlength: value,
       areasize: (Math.sqrt(3) * Math.pow(value, 2)) / 24,
       sidelength: value / 6,
