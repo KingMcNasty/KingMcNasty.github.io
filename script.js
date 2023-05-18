@@ -3,7 +3,7 @@ document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 document.getElementById("perimeterlength").addEventListener("change", calculate);
 
-var number = 1.61;
+var number = 1.62;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -17,8 +17,8 @@ function calculate(e) {
       stoslength: value * 2,
       perimeterlength: (12 * value) / Math.sqrt(3),
       areasize: value * ((12 * value) / Math.sqrt(3)) / 2,
-      sidelength: 2 * (value / Math.sqrt(3)),
-      ctovlength: (2 * value) / Math.sqrt(3),
+      sidelength: 2 * value / Math.sqrt(3),
+      ctovlength: 2 * value / Math.sqrt(3),
       vtovLength: 2 * ((2 * value) / Math.sqrt(3)),
     };
     setmeasurements(measurements);
@@ -37,13 +37,13 @@ function calculate(e) {
   }
   if (name === "perimeterlength") {
     const measurements = {
-      apothem: 4,
-      stoslength: 4,
-      perimeterlength: 4,
-      areasize: 4,
-      sidelength: 4,
-      ctovlength: 4,
-      vtovLength: 4,
+      apothem: Math.sqrt(3) / 12 * value,
+      stoslength: value * (2 * Math.sqrt(3)),
+      perimeterlength: value,
+      areasize: (Math.sqrt(3) * Math.pow(value, 2)) / 24,
+      sidelength: value / 6,
+      ctovlength: value / 6,
+      vtovLength: value / 3,
     };
     setmeasurements(measurements);
   }
