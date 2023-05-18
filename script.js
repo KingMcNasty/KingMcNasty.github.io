@@ -2,8 +2,12 @@ console.log("ver xxx")
 document.getElementById("apothem").addEventListener("change", calculate);
 document.getElementById("stoslength").addEventListener("change", calculate);
 document.getElementById("perimeterlength").addEventListener("change", calculate);
+document.getElementById("areasize").addEventListener("change", calculate);
+document.getElementById("sidelength").addEventListener("change", calculate);
+document.getElementById("ctovlength").addEventListener("change", calculate);
+document.getElementById("vtovLength").addEventListener("change", calculate);
 
-var number = 1.63;
+var number = 1.64;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -47,7 +51,56 @@ function calculate(e) {
     };
     setmeasurements(measurements);
   }
+  if (name === "areasize") {
+    const measurements = {
+      apothem: 4,
+      stoslength: 4,
+      perimeterlength: 4,
+      areasize: value,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
+    };
+    setmeasurements(measurements);
+  }
+  if (name === "sidelength") {
+    const measurements = {
+      apothem: 4,
+      stoslength: 4,
+      perimeterlength: 4,
+      areasize: value,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
+    };
+    setmeasurements(measurements);
+  }
+  if (name === "ctovlength") {
+    const measurements = {
+      apothem: 4,
+      stoslength: 4,
+      perimeterlength: 4,
+      areasize: value,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
+    };
+    setmeasurements(measurements);
+  }
+  if (name === "vtovLength") {
+    const measurements = {
+      apothem: 4,
+      stoslength: 4,
+      perimeterlength: 4,
+      areasize: value,
+      sidelength: 4,
+      ctovlength: 4,
+      vtovLength: 4,
+    };
+    setmeasurements(measurements);
+  }
 }
+
 
 function setmeasurements(measurements) {
   console.log(measurements);
