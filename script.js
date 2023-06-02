@@ -7,7 +7,7 @@ document.getElementById("sidelength").addEventListener("change", calculate);
 document.getElementById("ctovlength").addEventListener("change", calculate);
 document.getElementById("vtovLength").addEventListener("change", calculate);
 
-var number = 1.66;
+var number = 1.67;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -53,7 +53,7 @@ function calculate(e) {
   }
   if (name === "areasize") {
     const measurements = {
-      apothem: 4,
+      apothem: Math.sqrt(value/(2 * math.sqrt(3))),
       stoslength: 4,
       perimeterlength: 4,
       areasize: value,
