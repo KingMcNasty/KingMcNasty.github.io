@@ -53,9 +53,9 @@ function calculate(e) {
   }
   if (name === "areasize") {
     const measurements = {
-      apothem: Math.sqrt(value/(2 * math.sqrt(3))),
-      stoslength: 4,
-      perimeterlength: 4,
+      apothem: Math.sqrt(value/(2 * Math.sqrt(3))),
+      stoslength: Math.sqrt((2 * value)/Math.sqrt(3)),
+      perimeterlength: Math.sqrt(8 * Math.sqrt(3) * value),
       areasize: value,
       sidelength: 4,
       ctovlength: 4,
