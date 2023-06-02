@@ -7,7 +7,7 @@ document.getElementById("sidelength").addEventListener("change", calculate);
 document.getElementById("ctovlength").addEventListener("change", calculate);
 document.getElementById("vtovLength").addEventListener("change", calculate);
 
-var number = 1.67;
+var number = 1.68;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -58,7 +58,7 @@ function calculate(e) {
       perimeterlength: Math.sqrt(8 * Math.sqrt(3) * value),
       areasize: value,
       sidelength: Math.sqrt((2 * value)/(3 * Math.sqrt(3)),
-      ctovlength: 4,
+      ctovlength: (Math.sqrt((8 * value)/(3 * Math.sqrt(3)))/2,
       vtovLength: Math.sqrt((8 * value)/(3 * Math.sqrt(3)),
     };
     setmeasurements(measurements);
