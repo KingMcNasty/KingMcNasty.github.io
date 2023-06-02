@@ -57,9 +57,9 @@ function calculate(e) {
       stoslength: Math.sqrt((2 * value)/Math.sqrt(3)),
       perimeterlength: Math.sqrt(8 * Math.sqrt(3) * value),
       areasize: value,
-      sidelength: 4,
+      sidelength: Math.sqrt((2 * value)/(3 * Math.sqrt(3)),
       ctovlength: 4,
-      vtovLength: 4,
+      vtovLength: Math.sqrt((8 * value)/(3 * Math.sqrt(3)),
     };
     setmeasurements(measurements);
   }
@@ -83,7 +83,7 @@ function calculate(e) {
       areasize: 4,
       sidelength: 4,
       ctovlength: value,
-      vtovLength: 4,
+      vtovLength: value * 2,
     };
     setmeasurements(measurements);
   }
