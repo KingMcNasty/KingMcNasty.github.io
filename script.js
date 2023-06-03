@@ -68,7 +68,7 @@ function calculate(e) {
       apothem: (Math.sqrt(3)/2) * value,
       stoslength: (3 * value) / Math.sqrt(3),
       perimeterlength: value * 6,
-      areasize: (3 * value * Math.sqrt(3)) / 2,
+      areasize: Math.pow((value * Math.pow(3,3/4))/Math.sqrt(2),2),
       sidelength: value,
       ctovlength: value,
       vtovLength: value * 2,
