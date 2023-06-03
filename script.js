@@ -7,7 +7,7 @@ document.getElementById("sidelength").addEventListener("change", calculate);
 document.getElementById("ctovlength").addEventListener("change", calculate);
 document.getElementById("vtovLength").addEventListener("change", calculate);
 
-var number = 1.71;
+var number = 1.72;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
@@ -77,11 +77,11 @@ function calculate(e) {
   }
   if (name === "ctovlength") {
     const measurements = {
-      apothem: 4,
-      stoslength: 4,
-      perimeterlength: 4,
-      areasize: 4,
-      sidelength: 4,
+      apothem: (Math.sqrt(3)/2) * value,
+      stoslength: value * Math.sqrt(3),
+      perimeterlength: value * 6,
+      areasize: Math.pow((value * Math.pow(3,3/4))/Math.sqrt(2),2),
+      sidelength: value,
       ctovlength: value,
       vtovLength: value * 2,
     };
