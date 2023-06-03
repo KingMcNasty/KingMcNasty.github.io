@@ -29,14 +29,7 @@ function calculate(e) {
   }
   if (name === "stoslength") {
     const measurements = {
-      apothem: value / 2,
-      stoslength: value,
-      perimeterlength: 2 * Math.sqrt(3) * value,
-      areasize: 6 * (1/4) * Math.sqrt(3) * Math.pow((2 / Math.sqrt(3)) * (value / 2), 2),
-      sidelength: (2 / Math.sqrt(3)) * (value / 2),
-      ctovlength: value / Math.sqrt(3),
-      vtovLength: 2 * value / Math.sqrt(3),
-    };
+      
     setmeasurements(measurements);
   }
   if (name === "perimeterlength") {
