@@ -33,7 +33,7 @@ function calculate(e) {
       stoslength: value,
       perimeterlength: 2 * Math.sqrt(3) * value,
       areasize: 6 * (1/4) * Math.sqrt(3) * Math.pow((2 / Math.sqrt(3)) * (value / 2), 2),
-      sidelength: (2 / Math.sqrt(3)) * (value / 2),
+      sidelength: (value * Math.sqrt(3)) / 3,
       ctovlength: value / Math.sqrt(3),
       vtovLength: 2 * value / Math.sqrt(3),
     };
@@ -65,13 +65,13 @@ function calculate(e) {
   }
   if (name === "sidelength") {
     const measurements = {
-      apothem: 4,
-      stoslength: 4,
-      perimeterlength: 4,
-      areasize: 4,
+      apothem: (Math.sqrt(3)/2) * value,
+      stoslength: (3 * value) / Math.sqrt(3),
+      perimeterlength: value * 6,
+      areasize: (3 * value * Math.sqrt(3)) / 2,
       sidelength: value,
-      ctovlength: 4,
-      vtovLength: 4,
+      ctovlength: value,
+      vtovLength: value * 2,
     };
     setmeasurements(measurements);
   }
