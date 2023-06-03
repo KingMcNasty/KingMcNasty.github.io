@@ -7,7 +7,7 @@ document.getElementById("sidelength").addEventListener("change", calculate);
 document.getElementById("ctovlength").addEventListener("change", calculate);
 document.getElementById("vtovLength").addEventListener("change", calculate);
 
-var number = 1.69;
+var number = 1.7;
 var resultElement = document.getElementById("version");
 resultElement.textContent = "ver: " + number;
 
