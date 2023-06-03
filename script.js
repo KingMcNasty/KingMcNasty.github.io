@@ -59,7 +59,7 @@ function calculate(e) {
       areasize: value,
       sidelength: Math.sqrt((2 * value)/(3 * Math.sqrt(3))),
       ctovlength: (Math.sqrt((8 * value)/(3 * Math.sqrt(3))))/2,
-      vtovLength: Math.sqrt((8 * value)/(3 * Math.sqrt(3)),
+      vtovLength: Math.sqrt((8 * value)/(3 * Math.sqrt(3))),
     };
     setmeasurements(measurements);
   }
