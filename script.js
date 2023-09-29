@@ -112,11 +112,11 @@ function setmeasurements(measurements) {
   const ctovlength = document.getElementById("ctovlength");
   const vtovLength = document.getElementById("vtovLength");
 
-  apothem.value = measurements.apothem;
-  stoslength.value = measurements.stoslength;
-  perimeterlength.value = measurements.perimeterlength;
-  areasize.value = measurements.areasize;
-  sidelength.value = measurements.sidelength;
-  ctovlength.value = measurements.ctovlength;
-  vtovLength.value = measurements.vtovLength;
+  apothem.value = Math.round(measurements.apothem*10000)/10000;
+  stoslength.value = Math.round(measurements.stoslength*10000)/10000;
+  perimeterlength.value = Math.round(measurements.perimeterlength*10000)/10000;
+  areasize.value = Math.round(measurements.areasize*10000)/10000;
+  sidelength.value = Math.round(measurements.sidelength*10000)/10000;
+  ctovlength.value = Math.round(measurements.ctovlength*10000)/10000;
+  vtovLength.value = Math.round(measurements.vtovLength*10000)/10000;
 }
