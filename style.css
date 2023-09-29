@@ -28,3 +28,8 @@ img {
   gap: 12px;
   margin: 24px;
 }
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
