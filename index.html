@@ -1,56 +1,148 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neil's App</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hexagon Calculator</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,"system-ui",sans-serif);background:transparent;color:var(--color-text-primary,#1a1a1a);padding:1.5rem 1rem}
+h1{font-size:18px;font-weight:500;margin-bottom:1.5rem;text-align:center;color:var(--color-text-primary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.card{background:var(--color-background-primary,#fff);border:0.5px solid var(--color-border-tertiary,rgba(0,0,0,0.15));border-radius:var(--border-radius-lg,12px);padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.card svg{width:100%;height:auto;display:block}
+.label{font-size:13px;font-weight:500;color:var(--color-text-secondary,#666);text-align:center}
+.field{width:100%;border:0.5px solid var(--color-border-secondary,rgba(0,0,0,0.25));border-radius:var(--border-radius-md,8px);padding:8px 10px;font-size:16px;font-family:inherit;background:var(--color-background-secondary,#f7f7f5);color:var(--color-text-primary,#1a1a1a);text-align:center;outline:none;transition:border-color .15s}
+.field:focus{border-color:var(--color-border-primary,rgba(0,0,0,0.4))}
+.field::-webkit-inner-spin-button,.field::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.field{-moz-appearance:textfield}
+.note{font-size:11px;color:var(--color-text-tertiary,#999);text-align:center}
+@media(max-width:480px){
+  body{padding:1rem .75rem}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:16px}
+}
+</style>
 </head>
-
 <body>
-  <H1>Hexagon Calculator</H1>
-  <div id="version"></div>
-  <div class="center">
-    <form>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="apothem">Apothem:</label>
-        <input type="number" id="apothem" name="apothem" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="stoslength">S to S Length:</label>
-        <input type="number" id="stoslength" name="stoslength" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="perimeterlength">Perimeter Length:</label>
-        <input type="number" id="perimeterlength" name="perimeterlength" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="areasize">Area Size:</label>
-        <input type="number" id="areasize" name="areasize" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="sidelength">Side Length:</label>
-        <input type="number" id="sidelength" name="sidelength" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="ctovlength">C to V Length:</label>
-        <input type="number" id="ctovlength" name="ctovlength" />
-      </div>
-      <div class="calculation">
-        <img src="Hexagon.jpg" />
-        <label for="vtovLength">V to V Length:</label>
-        <input type="number" id="vtovLength" name="vtovLength" />
-      </div>
-    </form>
-  </div>
-  <script src="script.js"></script>
-</body>
+<h1>Regular Hexagon Calculator - Simplified!</h1>
+<div class="grid">
 
+<!-- 1: Side length -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <line x1="60" y1="8" x2="103" y2="32" stroke="#FF0000" stroke-width="2.2"/>
+    <text x="88" y="16" text-anchor="middle" font-size="10" fill="#FF0000" font-family="inherit">s</text>
+  </svg>
+  <span class="label">Side length</span>
+  <input class="field" id="f-side" type="number" min="0" placeholder="Enter Value" oninput="calc('side',this.value)">
+  <span class="note">Length of one edge</span>
+</div>
+
+<!-- 2: Apothem -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <line x1="60" y1="55" x2="103" y2="55" stroke="#FF0000" stroke-width="2.2"/>
+    <text x="83" y="50" text-anchor="middle" font-size="10" fill="#FF0000" font-family="inherit">a</text>
+  </svg>
+  <span class="label">Apothem</span>
+  <input class="field" id="f-apothem" type="number" min="0" placeholder="Enter Value" oninput="calc('apothem',this.value)">
+  <span class="note">Center to flat side</span>
+</div>
+
+<!-- 3: Short diagonal -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <line x1="17" y1="55" x2="103" y2="55" stroke="#FF0000" stroke-width="2.2"/>
+    <text x="60" y="50" text-anchor="middle" font-size="10" fill="#FF0000" font-family="inherit">d</text>
+  </svg>
+  <span class="label">Short diagonal</span>
+  <input class="field" id="f-short" type="number" min="0" placeholder="Enter Value" oninput="calc('short',this.value)">
+  <span class="note">Flat side to flat side</span>
+</div>
+
+<!-- 4: Long diagonal -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <line x1="60" y1="8" x2="60" y2="102" stroke="#FF0000" stroke-width="2.2"/>
+    <text x="72" y="58" text-anchor="start" font-size="10" fill="#FF0000" font-family="inherit">D</text>
+  </svg>
+  <span class="label">Long diagonal</span>
+  <input class="field" id="f-long" type="number" min="0" placeholder="Enter Value" oninput="calc('long',this.value)">
+  <span class="note">Vertex to vertex (= 2s)</span>
+</div>
+
+<!-- 5: Circumradius -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <line x1="60" y1="8" x2="60" y2="55" stroke="#FF0000" stroke-width="2.2"/>
+
+    <text x="72" y="35" text-anchor="start" font-size="10" fill="#FF0000" font-family="inherit">R</text>
+  </svg>
+  <span class="label">Circumradius</span>
+  <input class="field" id="f-circumradius" type="number" min="0" placeholder="Enter Value" oninput="calc('circumradius',this.value)">
+  <span class="note">Center to vertex (= s)</span>
+</div>
+
+<!-- 6: Perimeter -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="none" stroke="#FF0000" stroke-width="2.2"/>
+    <text x="60" y="58" text-anchor="middle" font-size="10" fill="#D4537E" font-family="inherit">P = 6s</text>
+  </svg>
+  <span class="label">Perimeter</span>
+  <input class="field" id="f-perim" type="number" min="0" placeholder="Enter Value" oninput="calc('perim',this.value)">
+  <span class="note">Total edge length</span>
+</div>
+
+<!-- 6: Area -->
+<div class="card">
+  <svg viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="60,8 103,32 103,78 60,102 17,78 17,32" fill="rgba(255,0,0,0.2)" stroke="var(--color-border-secondary,#aaa)" stroke-width="1.2"/>
+    <text x="60" y="52" text-anchor="middle" font-size="9" fill="#FF0000" font-family="inherit">A = (3√3/2)s²</text>
+    <text x="60" y="65" text-anchor="middle" font-size="9" fill="#FF0000" font-family="inherit">≈ 2.598s²</text>
+  </svg>
+  <span class="label">Area</span>
+  <input class="field" id="f-area" type="number" min="0" placeholder="Enter Value" oninput="calc('area',this.value)">
+  <span class="note">Total enclosed area</span>
+</div>
+
+</div>
+
+<script>
+const S3 = Math.sqrt(3);
+
+function sideFrom(k,v){
+  switch(k){
+    case 'circumradius': return v;
+    case 'side':   return v;
+    case 'apothem':return v*S3/2;
+    case 'short':  return v*3/S3;
+    case 'long':   return v*2;
+    case 'perim':  return v*6;
+    case 'area':   return Math.pow((v * Math.pow(3,3/4))/Math.sqrt(2),2);
+  }
+}
+
+function calc(key,val){
+  const v=parseFloat(val);
+  if(!val||isNaN(v)||v<=0){
+    ['side','apothem','short','long','circumradius','perim','area'].filter(k=>k!==key)
+      .forEach(k=>document.getElementById('f-'+k).value='');
+    return;
+  }
+  const s=sideFrom(key,v);
+  ['side','apothem','short','long','perim','area'].filter(k=>k!==key)
+    .forEach(k=>{
+      const el=document.getElementById('f-'+k);
+      el.value=+sideFrom(k,s).toFixed(6);
+    });
+}
+</script>
+</body>
 </html>
