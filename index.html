@@ -137,7 +137,7 @@ function calc(key,val){
     return;
   }
   const s=sideFrom(key,v);
-  ['side','apothem','short','long','perim','area'].filter(k=>k!==key)
+  ['side','apothem','short','long','circumradius','perim','area'].filter(k=>k!==key)
     .forEach(k=>{
       const el=document.getElementById('f-'+k);
       el.value=+sideFrom(k,s).toFixed(6);
