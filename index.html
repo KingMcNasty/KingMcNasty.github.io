@@ -17,8 +17,6 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
 .label{font-size:16px;font-weight:500;color:#444;text-align:center}
 .field{width:100%;border:1px solid #ddd;border-radius:8px;padding:8px 10px;font-size:16px;font-family:'DM Sans',system-ui,sans-serif;background:#f9f7f5;color:#1a1a1a;text-align:center;outline:none;transition:border-color .15s}
 .field:focus{border-color:#c0273d}
-.field::-webkit-inner-spin-button,.field::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
-.field{-moz-appearance:textfield}
 .note{font-size:11px;color:#aaa;text-align:center}
 @media(max-width:480px){
   body{padding:0}
@@ -44,7 +42,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="88" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">a</text>
   </svg>
   <span class="label">Side length</span>
-  <input class="field" id="f-side" type="number" min="0" placeholder="Enter Value" oninput="calc('side',this.value)">
+  <input class="field" id="f-side" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('side',this.value)">
   <span class="note">Length of one side</span>
 </div>
 
@@ -56,7 +54,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="65" y="36" text-anchor="start" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">R</text>
   </svg>
   <span class="label">Circumradius</span>
-  <input class="field" id="f-circumradius" type="number" min="0" placeholder="Enter Value" oninput="calc('circumradius',this.value)">
+  <input class="field" id="f-circumradius" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('circumradius',this.value)">
   <span class="note">Center to vertex</span>
 </div>
 
@@ -68,7 +66,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="83" y="50" text-anchor="middle" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">r</text>
   </svg>
   <span class="label">Apothem</span>
-  <input class="field" id="f-apothem" type="number" min="0" placeholder="Enter Value" oninput="calc('apothem',this.value)">
+  <input class="field" id="f-apothem" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('apothem',this.value)">
   <span class="note">Center to flat side</span>
 </div>
 
@@ -80,7 +78,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="60" y="50" text-anchor="middle" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">s</text>
   </svg>
   <span class="label">Short diagonal</span>
-  <input class="field" id="f-short" type="number" min="0" placeholder="Enter Value" oninput="calc('short',this.value)">
+  <input class="field" id="f-short" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('short',this.value)">
   <span class="note">Flat side to flat side</span>
 </div>
 
@@ -92,7 +90,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="65" y="58" text-anchor="start" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">d</text>
   </svg>
   <span class="label">Long diagonal</span>
-  <input class="field" id="f-long" type="number" min="0" placeholder="Enter Value" oninput="calc('long',this.value)">
+  <input class="field" id="f-long" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('long',this.value)">
   <span class="note">Vertex to vertex</span>
 </div>
 
@@ -103,7 +101,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="60" y="58" text-anchor="middle" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">P</text>
   </svg>
   <span class="label">Perimeter</span>
-  <input class="field" id="f-perim" type="number" min="0" placeholder="Enter Value" oninput="calc('perim',this.value)">
+  <input class="field" id="f-perim" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('perim',this.value)">
   <span class="note">Total edge length</span>
 </div>
 
@@ -114,7 +112,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
     <text x="60" y="58" text-anchor="middle" font-size="10" font-weight="bold" fill="#c0273d" font-family="inherit">A</text>
   </svg>
   <span class="label">Area</span>
-  <input class="field" id="f-area" type="number" min="0" placeholder="Enter Value" oninput="calc('area',this.value)">
+  <input class="field" id="f-area" type="text" inputmode="decimal" placeholder="Enter Value" oninput="calc('area',this.value)">
   <span class="note">Total enclosed area</span>
 </div>
 
@@ -122,33 +120,63 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#f0ece8;color:#1a1a1a
 
 <script>
 const S3 = Math.sqrt(3);
+const KEYS = ['side','circumradius','apothem','short','long','perim','area'];
 
-function sideFrom(k,v){
-  switch(k){
-    case 'circumradius': return v;
-    case 'side':   return v;
-    case 'apothem':return v*S3/2;
-    case 'short':  return v*S3;
-    case 'long':   return v*2;
-    case 'perim':  return v*6;
-    case 'area':   return Math.pow((v * Math.pow(3,3/4))/Math.sqrt(2),2);
-  }
+function fmt(n) {
+  return parseFloat(n.toFixed(4));
 }
 
-function calc(key,val){
-  const v=parseFloat(val);
-  if(!val||isNaN(v)||v<=0){
-    ['side','apothem','short','long','circumradius','perim','area'].filter(k=>k!==key)
-      .forEach(k=>document.getElementById('f-'+k).value='');
+function fillAll(s) {
+  document.getElementById('f-side').value        = fmt(s);
+  document.getElementById('f-circumradius').value = fmt(s);
+  document.getElementById('f-apothem').value      = fmt(s * S3 / 2);
+  document.getElementById('f-short').value        = fmt(s * S3);
+  document.getElementById('f-long').value         = fmt(s * 2);
+  document.getElementById('f-perim').value        = fmt(s * 6);
+  document.getElementById('f-area').value         = fmt(3 * S3 / 2 * s * s);
+}
+
+function calc(key, val) {
+  // Strip non-numeric characters except decimal point
+  const cleaned = val.replace(/[^0-9.]/g, '');
+  if (cleaned !== val) {
+    document.getElementById('f-' + key).value = cleaned;
     return;
   }
-  const s=sideFrom(key,v);
-  ['side','apothem','short','long','circumradius','perim','area'].filter(k=>k!==key)
-    .forEach(k=>{
-      const el=document.getElementById('f-'+k);
-      const raw=sideFrom(k,s);
-      el.value=Math.trunc(raw*10000)/10000;
+
+  // Cap at 16 characters
+  if (val.length > 16) {
+    document.getElementById('f-' + key).value = val.slice(0, 16);
+    return;
+  }
+
+  // Cap at 4 decimal places
+  const dotIndex = val.indexOf('.');
+  if (dotIndex !== -1 && val.length - dotIndex - 1 > 4) {
+    document.getElementById('f-' + key).value = val.slice(0, dotIndex + 5);
+    return;
+  }
+
+  // Allow incomplete input like "10." or "" without clearing or recalculating
+  if (val === '' || val === '.' || val.endsWith('.')) return;
+
+  const v = parseFloat(val);
+  if (isNaN(v) || v <= 0) {
+    KEYS.forEach(k => {
+      if (k !== key) document.getElementById('f-' + k).value = '';
     });
+    return;
+  }
+
+  switch(key) {
+    case 'side':         fillAll(v);              break;
+    case 'circumradius': fillAll(v);              break;
+    case 'apothem':      fillAll(v * 2 / S3);     break;
+    case 'short':        fillAll(v / S3);         break;
+    case 'long':         fillAll(v / 2);          break;
+    case 'perim':        fillAll(v / 6);          break;
+    case 'area':         fillAll(Math.sqrt(2 * v / (3 * S3))); break;
+  }
 }
 </script>
 </body>
